@@ -11,7 +11,7 @@ const products = [
   {
     "id": 2,
     "title": "Whey Protein True Made Ena Varios Sabores X 2,05 Lbs",
-    "price": 53.200,
+    "price": 53.205,
     "category": "Proteina",
     "stock": 10,
     "img": "https://acdn-us.mitiendanube.com/stores/003/189/220/products/creatina-monohidrato-gentech-x-500g-15-d053bce77d4637276f17573421694664-640-0.webp",

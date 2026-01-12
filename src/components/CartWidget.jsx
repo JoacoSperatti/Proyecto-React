@@ -1,14 +1,13 @@
-import { useCart } from "../context/CartContext"; // Importamos el hook
+import { useCart } from "./CartContext"; // Ruta corregida
 
 const CartWidget = () => {
-    const { totalQuantity } = useCart(); // Sacamos la función del contexto
+    const { totalQuantity } = useCart(); 
 
-    const quantity = totalQuantity(); // Ejecutamos para obtener el número
+    const quantity = totalQuantity(); 
 
     return (
         <div className="cart-widget">
             🛒
-            {/* Solo mostramos el badge si hay items (opcional) */}
             {quantity > 0 && <span className="cart-notification">{quantity}</span>}
         </div>
     );

@@ -1,23 +1,22 @@
-import { useParams } from 'react-router-dom'; // Ajusta si usas 'react-router' o 'react-router-dom'
+import { useParams } from 'react-router-dom'; // O 'react-router'
 import ItemCount from './ItemCount';
 import { useEffect, useState } from 'react';
 import { getItemData } from '../data/mockService';
-import { useCart } from '../context/CartContext'; // Importamos el hook del carrito
+import { useCart } from './CartContext'; // Ruta corregida
 
 function ItemDetailContainer(){
   const { itemID } = useParams();
   const [product, setProduct] = useState({});
-  const { addItem } = useCart(); // Traemos la función para agregar
+  const { addItem } = useCart(); 
 
   useEffect( () => {
     getItemData(itemID).then( response => setProduct(response))
-  }, [itemID]) // Agregamos itemID a dependencias
+  }, [itemID])
 
-  // Esta función se ejecutará cuando el hijo (ItemCount) haga click
   const handleAdd = (count) => {
     console.log(`Agregando al carrito: ${product.title}, cantidad: ${count}`);
-    addItem(product, count); // Guardamos en el contexto global
-    alert("Producto agregado al carrito"); // Feedback temporal
+    addItem(product, count); 
+    alert("Producto agregado al carrito"); 
   }
   
   return(    
@@ -28,7 +27,6 @@ function ItemDetailContainer(){
     <p>{product.description}</p>
     <h4>$ {product.price}</h4>
     
-    {/* Pasamos la función handleAdd al hijo */}
     <ItemCount onAdd={handleAdd} />
   </section>
   )
