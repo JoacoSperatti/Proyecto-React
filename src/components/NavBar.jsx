@@ -1,19 +1,22 @@
 import CartWidget from "./CartWidget";
+import { NavLink } from "react-router"; 
+export default function NavBar() {
+  return (
+    <nav className="navbar">
+      
+      <NavLink to="/">
+        <h2>𝄂𝄂—𝄂𝄂 PowerFit</h2>
+      </NavLink>
 
-const NavBar = () => {
-    return (
-        <nav className="navbar">
-            <div className="navbar-logo">
-                <h2>𝄂𝄂—𝄂𝄂 PowerFit</h2>
-            </div>
-            <ul className="navbar-links">
-                <li><a href="#">Proteínas</a></li>
-                <li><a href="#">Creatina</a></li>
-                <li><a href="#">Vitaminas</a></li>
-            </ul>
-            <CartWidget />
-        </nav>
-    );
-};
+      <ul className="navbar-links">
+        <li><NavLink to="/category/Creatinas">Creatinas</NavLink></li>
+        <li><NavLink to="/category/Proteinas">Proteinas</NavLink></li>
+      </ul>
 
-export default NavBar;
+      <div className="cart-widget">
+         <CartWidget />
+      </div>
+
+    </nav>
+  );
+}
