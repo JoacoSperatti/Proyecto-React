@@ -1,16 +1,29 @@
-# React + Vite
+# PowerFit | E-commerce de Suplementos Deportivos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenido a **PowerFit**! 💪
+Este proyecto es una Single Page Application (SPA) de e-commerce desarrollada con **React JS**. La aplicación permite a los usuarios navegar por un catálogo de suplementos, filtrar por categorías, ver detalles de productos, gestionar un carrito de compras y finalizar pedidos generando órdenes reales en **Firebase Firestore**.
 
-Currently, two official plugins are available:
+## 🚀 Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Navegación Fluida:** Utilizando `react-router-dom` para una experiencia de usuario sin recargas.
+- **Catálogo Dinámico:** Los productos se cargan directamente desde una base de datos en la nube (Firestore).
+- **Detalle de Producto:** Vista ampliada con descripción, precio y selector de cantidad.
+- **Carrito de Compras:**
+  - Agregar productos con control de stock.
+  - Eliminar ítems individuales o vaciar el carrito.
+  - Cálculo automático de totales.
+- **Checkout:** Formulario de finalización de compra con validación de datos y generación de ID de orden.
+- **Feedback Visual:** Notificaciones toast (`react-toastify`) al agregar productos y loaders de carga.
 
-## React Compiler
+## 🛠️ Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **React JS** (Vite) - Librería principal para la UI.
+* **Firebase / Firestore** - Base de datos NoSQL para productos y órdenes.
+* **React Router Dom** - Manejo de rutas y navegación.
+* **React Toastify** - Notificaciones visuales.
+* **CSS3** - Estilos personalizados y diseño responsive.
 
-## Expanding the ESLint configuration
+## 📝 Autor
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Joaquín Speratti**
+Desarrollado como Proyecto Final para el curso de React JS.
