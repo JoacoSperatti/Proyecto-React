@@ -18,6 +18,9 @@ export default function NavBar() {
           <NavLink to="/category/Pre-entreno">Pre-entrenos</NavLink>
         </li>
         <li>
+          <NavLink to="/category/Vitaminas">Vitaminas</NavLink>
+        </li>
+        <li>
           <NavLink to="/category/Accesorios">Accesorios</NavLink>
         </li>
       </ul>
