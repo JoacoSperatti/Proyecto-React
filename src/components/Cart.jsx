@@ -1,8 +1,31 @@
 import { useCart } from "./CartContext";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Cart = () => {
   const { cart, totalQuantity, totalPrice, removeItem, clearCart } = useCart();
+
+  const handleClearCart = () => {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Se eliminarán todos los productos del carrito.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, vaciar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        clearCart();
+        Swal.fire({
+          title: "¡Borrado!",
+          text: "Tu carrito ha sido vaciado.",
+          icon: "success",
+        });
+      }
+    });
+  };
 
   if (totalQuantity() === 0) {
     return (
@@ -64,9 +87,10 @@ const Cart = () => {
       ))}
 
       <div style={{ marginTop: "20px", textAlign: "right" }}>
-        <h3>Total a pagar: ${totalPrice()}</h3>
+        <h3>Total a pagar: ${totalPrice().toLocaleString()}</h3>
+
         <button
-          onClick={clearCart}
+          onClick={handleClearCart}
           style={{
             marginRight: "10px",
             padding: "10px",
@@ -78,6 +102,7 @@ const Cart = () => {
         >
           Vaciar Carrito
         </button>
+
         <Link to="/checkout">
           <button
             style={{

@@ -51,12 +51,10 @@ function ItemDetailContainer() {
 
   return (
     <section className="detail-container">
-      {/* Columna Izquierda: Imagen */}
       <div className="detail-image-column">
         <img src={product.img} alt={product.title} className="detail-img" />
       </div>
 
-      {/* Columna Derecha: Información */}
       <div className="detail-content-column">
         <h2 className="detail-title">{product.title}</h2>
         <hr className="detail-divider" />

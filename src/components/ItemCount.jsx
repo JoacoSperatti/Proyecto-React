@@ -12,13 +12,19 @@ export default function ItemCount({ onAdd }) {
   }
 
   return (
-    <div style={{ margin: "20px 0" }}>
-      <div style={{ marginBottom: "10px" }}>
-        <button onClick={handleResta}>-</button>
-        <span style={{ margin: "0 10px", fontWeight: "bold" }}>{count}</span>
-        <button onClick={handleSuma}>+</button>
+    <div className="item-count-container">
+      <div className="counter-controls">
+        <button className="counter-btn" onClick={handleResta}>
+          -
+        </button>
+        <span className="counter-value">{count}</span>
+        <button className="counter-btn" onClick={handleSuma}>
+          +
+        </button>
       </div>
-      <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+      <button className="add-to-cart-btn" onClick={() => onAdd(count)}>
+        Agregar al Carrito 🛒
+      </button>
     </div>
   );
 }
