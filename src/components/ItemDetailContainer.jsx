@@ -16,6 +16,7 @@ function ItemDetailContainer() {
   useEffect(() => {
     setLoading(true);
     const docRef = doc(db, "products", itemID);
+
     getDoc(docRef)
       .then((doc) => {
         if (doc.exists()) {
@@ -28,6 +29,7 @@ function ItemDetailContainer() {
   const handleAdd = (count) => {
     addItem(product, count);
     setIsAdded(true);
+
     toast.success(`Agregado al carrito!`, {
       theme: "dark",
       position: "bottom-right",
@@ -47,6 +49,7 @@ function ItemDetailContainer() {
         <h2>Cargando detalle...</h2>
       </div>
     );
+
   if (!product) return <h2>Producto no encontrado</h2>;
 
   return (
@@ -61,6 +64,10 @@ function ItemDetailContainer() {
         <p className="detail-price">$ {product.price.toLocaleString()}</p>
         <p className="detail-description">{product.description}</p>
 
+        <p style={{ marginBottom: "20px", color: "#666", fontSize: "0.9rem" }}>
+          Stock disponible: <strong>{product.stock}</strong> u.
+        </p>
+
         {isAdded ? (
           <div className="detail-actions">
             <Link to="/cart">
@@ -72,7 +79,7 @@ function ItemDetailContainer() {
           </div>
         ) : (
           <div style={{ marginTop: "20px" }}>
-            <ItemCount onAdd={handleAdd} />
+            <ItemCount onAdd={handleAdd} stock={product.stock} />
           </div>
         )}
       </div>

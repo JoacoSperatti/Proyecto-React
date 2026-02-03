@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ItemCount({ onAdd }) {
+export default function ItemCount({ onAdd, stock }) {
   const [count, setCount] = useState(1);
 
   function handleResta() {
@@ -8,7 +8,9 @@ export default function ItemCount({ onAdd }) {
   }
 
   function handleSuma() {
-    setCount(count + 1);
+    if (count < stock) {
+      setCount(count + 1);
+    }
   }
 
   return (
@@ -18,12 +20,22 @@ export default function ItemCount({ onAdd }) {
           -
         </button>
         <span className="counter-value">{count}</span>
-        <button className="counter-btn" onClick={handleSuma}>
+        <button
+          className="counter-btn"
+          onClick={handleSuma}
+          disabled={count === stock}
+          style={{ opacity: count === stock ? 0.5 : 1 }}
+        >
           +
         </button>
       </div>
-      <button className="add-to-cart-btn" onClick={() => onAdd(count)}>
-        Agregar al Carrito 🛒
+
+      <button
+        className="add-to-cart-btn"
+        onClick={() => onAdd(count)}
+        disabled={stock === 0}
+      >
+        {stock === 0 ? "Sin Stock" : "Agregar al Carrito 🛒"}
       </button>
     </div>
   );

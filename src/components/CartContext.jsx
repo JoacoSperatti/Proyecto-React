@@ -33,9 +33,12 @@ export const CartProvider = ({ children }) => {
 
   const incrementItem = (id) => {
     setCart(
-      cart.map((prod) =>
-        prod.id === id ? { ...prod, quantity: prod.quantity + 1 } : prod,
-      ),
+      cart.map((prod) => {
+        if (prod.id === id && prod.quantity < prod.stock) {
+          return { ...prod, quantity: prod.quantity + 1 };
+        }
+        return prod;
+      }),
     );
   };
 
